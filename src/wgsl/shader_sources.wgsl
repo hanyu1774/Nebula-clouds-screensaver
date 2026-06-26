@@ -28,9 +28,9 @@ fn vs_main(in: VertexInput) -> VertexOutput
     return out;
 }
 
-const SHADOW_COLOR: vec3<f32> = vec3<f32>(0.75, 0.65, 0.0);
-const BASE_COLOR: vec3<f32> = vec3<f32>(1.0, 1.0, 0.06);
-const HIGHLIGHT_COLOR: vec3<f32> = vec3<f32>(1.0, 1.0, 0.87);
+const SHADOW_COLOR: vec3<f32> = vec3<f32>(0.0, 0.14, 0.0);
+const BASE_COLOR: vec3<f32> = vec3<f32>(0.0, 0.25, 0.0);
+const HIGHLIGHT_COLOR: vec3<f32> = vec3<f32>(0, 0.937, 0);
 
 @fragment
 fn fs_main(in: VertexOutput) -> @location(0) vec4<f32> 
