@@ -8,5 +8,6 @@ pub mod mist_shader;
 pub mod render_frame;
 pub mod render_texture;
 pub mod resize_surface;
+pub mod starfield_shader;
 pub mod toggle_fullscreen;
 pub mod upload_star_geometry;

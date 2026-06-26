@@ -71,6 +71,9 @@ pub fn run(state: &mut RenderState, angle_radians: f32, time_seconds: f32) {
             occlusion_query_set: None,
             multiview_mask: None,
         });
+        pass.set_pipeline(&state.starfield_pipeline);
+        pass.set_bind_group(0, &state.mist_bind_group, &[]);
+        pass.draw(0..3, 0..1);
 
         pass.set_pipeline(&state.mist_pipeline);
         pass.set_bind_group(0, &state.mist_bind_group, &[]);

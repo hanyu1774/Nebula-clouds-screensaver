@@ -59,7 +59,7 @@ fn fbm(p: vec2<f32>) -> f32 {
 }
 
 // constraint, as a single named value: green never exceeds 144/255.
-const MAX_GREEN: f32 = 144.0 / 255.0;
+const MAX_GREEN: f32 = 64.0 / 255.0;
 
 @fragment
 fn fs_main(in: VertexOutput) -> @location(0) vec4<f32> {

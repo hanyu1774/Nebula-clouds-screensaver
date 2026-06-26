@@ -17,6 +17,7 @@ use crate::flows::mist_shader;
 use crate::flows::render_frame;
 use crate::flows::render_texture;
 use crate::flows::resize_surface;
+use crate::flows::starfield_shader;
 use crate::flows::toggle_fullscreen;
 use crate::flows::upload_star_geometry;
 use crate::models::input_action::InputAction;
@@ -53,6 +54,7 @@ async fn build_render_state(window: Arc<Window>) -> RenderState {
 
     let (mist_uniform_buffer, mist_bind_group_layout, mist_bind_group) = mist_binding::run(&device);
     let mist_pipeline = mist_shader::run(&device, config.format, &mist_bind_group_layout);
+    let starfield_pipeline = starfield_shader::run(&device, config.format, &mist_bind_group_layout);
 
     RenderState {
         surface,
@@ -69,6 +71,7 @@ async fn build_render_state(window: Arc<Window>) -> RenderState {
         mist_pipeline,
         mist_uniform_buffer,
         mist_bind_group,
+        starfield_pipeline,
     }
 }
 

@@ -17,4 +17,7 @@ pub struct RenderState {
     pub mist_pipeline: wgpu::RenderPipeline,
     pub mist_uniform_buffer: wgpu::Buffer,
     pub mist_bind_group: wgpu::BindGroup,
+
+    // Starfields
+    pub starfield_pipeline: wgpu::RenderPipeline,
 }
