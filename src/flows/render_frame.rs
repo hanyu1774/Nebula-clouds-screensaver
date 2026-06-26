@@ -42,10 +42,10 @@ pub fn run(state: &mut RenderState, angle_radians: f32) {
                 depth_slice: None,
                 ops: wgpu::Operations {
                     load: wgpu::LoadOp::Clear(wgpu::Color {
-                        r: 0.05,
-                        g: 0.05,
-                        b: 0.08,
-                        a: 1.0,
+                        r: 0.00,
+                        g: 0.00,
+                        b: 0.00,
+                        a: 0.0,
                     }),
                     store: wgpu::StoreOp::Store,
                 },
