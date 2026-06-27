@@ -23,7 +23,21 @@ pub fn run(state: &mut RenderState, angle_radians: f32, time_seconds: f32) {
     let surface_texture = match state.surface.get_current_texture() {
         wgpu::CurrentSurfaceTexture::Success(texture) => texture,
         wgpu::CurrentSurfaceTexture::Suboptimal(texture) => {
-            state.surface.configure(&state.device, &state.config);
+            // Do not call surface.configure() here. `texture` above has
+            // already been acquired from the surface and not yet
+            // presented, and wgpu refuses to reconfigure a surface
+            // while an acquired SurfaceTexture for it is still alive.
+            // wgpu-core calls this case `PreviousOutputExists`, and it
+            // is exactly the panic this comment is fixing:
+            // "`SurfaceOutput` must be dropped before a new `Surface`
+            // is made". A suboptimal texture is still valid to draw to
+            // and present, it only means the surface would benefit
+            // from a reconfigure. The resize handler in workflow.rs
+            // already reconfigures the surface whenever winit reports
+            // a real size change, including the one that fires right
+            // after toggling fullscreen, so the correct thing to do
+            // here is just treat this the same as a normal frame and
+            // let that handler do the reconfiguring.
             texture
         }
         wgpu::CurrentSurfaceTexture::Outdated => {
