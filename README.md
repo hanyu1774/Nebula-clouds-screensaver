@@ -33,8 +33,3 @@ The main function `run()` in the file `src/workflows/workflow.rs` is used in `sr
 * `wgpu`
 * `winit`
 
-## Known issue(s)
-
-* When entering fullscreen mode (via F11), the application may crash.
-
-I am currently working on it.
