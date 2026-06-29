@@ -37,4 +37,4 @@ The main function `run()` in the file `src/workflows/workflow.rs` is used in `sr
 * You need the Rust SDK. If you don't have it, you need to install it. Make sure to install `rustup` and `cargo` (in Windows, `cargo` is probably included in the Rust SDK).
 * Download this repo or clone it.
 * Open the console / terminal, navigate to the location where the downloaded repo is.
-* Run `cargo build --release`. The executable can be found in `target/release`.
+* Run `cargo build --release`. The executable can be found in `<project path>/target/release`.
